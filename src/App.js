@@ -50,16 +50,6 @@ function App() {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [expandedCards, setExpandedCards] = useState({});
-  const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
-  const [isGreetingChanging, setIsGreetingChanging] = useState(false);
-
-  // Multilingual greetings
-  const greetings = [
-    "Hello, I'm Steven",
-    "Hola, soy Steven",
-    "你好，我是嘉荣",
-    "Pura Vida, soy Steven"
-  ];
 
   // Work experience data with summary and full details
   const workExperiences = [
@@ -81,9 +71,9 @@ function App() {
     },
     {
       id: 'it-worker',
-      title: "IT Student Worker",
+      title: "Student IT Support Technician",
       company: "NYU Faculty of Arts and Sciences",
-      period: "Jan. 2024 - Present",
+      period: "Jan. 2024 - Dec. 2025",
       location: "New York, NY",
       image: "assets/img/nyu_fas.JPG",
       summary: "Providing technical support and troubleshooting for university systems",
@@ -132,13 +122,46 @@ function App() {
   // Projects data with summary and full details
   const projects = [
     {
+      id: 'itch-io-games',
+      title: "Game Development Portfolio on itch.io",
+      period: "2023 - Present",
+      location: "Brooklyn, NY",
+      image: "assets/img/portfolio/game.jpeg",
+      summary: "Collection of indie games developed using Godot and Game Maker",
+      keySkills: ["Godot", "Game Maker", "Game Design", "Game Development"],
+      link: "https://stevloc.itch.io/",
+      fullDescription: [
+        "Developed and published multiple indie games on itch.io using Godot and Game Maker engines",
+        "Explored various game genres and mechanics to build a diverse portfolio of playable experiences",
+        "Applied game design principles including player feedback, level design, and gameplay balancing",
+        "Iterated on game concepts based on player feedback and testing to improve user experience"
+      ],
+      allSkills: ["Godot", "Game Maker", "Game Design", "Level Design", "Game Mechanics", "Player Testing", "2D Graphics", "Game Publishing"]
+    },
+    {
+      id: 'jira-service',
+      title: "Jira Service Adapter",
+      period: "Sep. 2025 - Dec. 2025",
+      location: "Brooklyn, NY",
+      image: "assets/img/jira.png",
+      summary: "Built Jira microservice with OAuth 2.0, FastAPI, and CI/CD deployment achieving 90% test coverage",
+      keySkills: ["FastAPI", "OAuth 2.0", "CI/CD", "Python"],
+      link: "https://github.com/kiamygomes/osdp-team6",
+      fullDescription: [
+        "Implemented a Jira microservice by defining clean API design, integrating OAuth 2.0, and deploying FastAPI service to public cloud environment with reliable CI/CD integration using automated build and deployment pipelines",
+        "Improved service stability by maintaining typed interfaces, passing all required mypy and Ruff checks, and developing unit, integration, and E2E tests that achieved 90% coverage, ensuring consistent API behavior and dependable client generation"
+      ],
+      allSkills: ["FastAPI", "Python", "OAuth 2.0", "Microservices", "CI/CD", "Cloud Deployment", "mypy", "Ruff", "Unit Testing", "Integration Testing", "E2E Testing", "API Design", "Typed Interfaces"]
+    },
+    {
       id: 'hustle-hub',
       title: "Hustle Hub Job Board",
-      period: "Jan. 2025 - Present",
+      period: "Jan. 2025 - Dec. 2025",
       location: "Brooklyn, NY",
       image: "assets/img/portfolio/jobboard.JPG",
       summary: "Multi-language job board expanding access for underserved communities",
       keySkills: ["Angular", "Django", "PostgreSQL", "Multi-language Support"],
+      link: "https://github.com/HanmingXiong/HustleHub",
       fullDescription: [
         "Built a multi-language job board that expanded access to job and financial resources for underserved communities by ~40%",
         "Improved usability for non-technical users through intuitive Angular frontend design",
@@ -300,21 +323,6 @@ function App() {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  // Auto-advance greetings with smooth transition
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsGreetingChanging(true);
-      setTimeout(() => {
-        setCurrentGreetingIndex((prevIndex) =>
-          prevIndex === greetings.length - 1 ? 0 : prevIndex + 1
-        );
-        setIsGreetingChanging(false);
-      }, 200); // Brief fade out before changing
-    }, 4000); // Change greeting every 4 seconds
-
-    return () => clearInterval(interval);
-  }, [greetings.length]);
-
   // Prevent image dragging globally
   useEffect(() => {
     const preventDrag = (e) => {
@@ -392,11 +400,7 @@ function App() {
         </div>
 
         <div className="container text-center text-white hero-content">
-          <div className="greeting-container">
-            <h1 className={`greeting-text-large greeting-transition ${isGreetingChanging ? 'changing' : ''}`}>
-              {greetings[currentGreetingIndex]}
-            </h1>
-          </div>
+          <h1>Hello, I'm Steven</h1>
           <p className="lead">CS @ NYU • Prev Amazon SysDev Intern • Global Explorer • Aspiring AI/Tech Innovator</p>
           <p className="hero-caption">{heroImages[currentImageIndex].caption}</p>
         </div>
@@ -473,14 +477,13 @@ function App() {
                 <p><strong>Current Location:</strong> New York, NY</p>
                 <p><strong>Hometown:</strong> San Jose, Costa Rica</p>
                 <p><strong>Professional Interests:</strong> AI, Game Design, Cybersecurity, Software Engineering, Emerging Technologies, Smart Cities, Human Computer Interaction</p>
-                <p><strong>Personal Interests:</strong> Travel, Cooking, Running (Brooklyn Half Marathon), Hiking, Cafés, Biking (Citibike), Photography, Music, Pickleball, Cultural Exploration</p>
+                <p><strong>Personal Interests:</strong> Travel, Cooking, Running, Hiking, Cafés, Biking (Citibike), Photography, Music, Pickleball, Cultural Exploration</p>
               </div>
 
               <div>
                 <p>Welcome to my personal website!</p>
                 <p>
-                  Hi! I'm Steven Lo, a Chinese Costa Rican Computer Science student at NYU Tandon minoring in Mathematics, Cybersecurity, and Game Engineering. I previously worked as a Systems Development Engineer Intern at Amazon, where I integrated AI-powered forecasting tools and deployed scalable AWS pipelines.
-                  Currently, I'm an IT Student Worker at NYU, providing technical support and improving system efficiency for faculty and staff.
+                  Hi! I'm Steven Lo, a Chinese Costa Rican Computer Science student at NYU Tandon minoring in Mathematics and Game Engineering. I previously worked as a Systems Development Engineer Intern at Amazon, where I integrated AI-powered forecasting tools and deployed scalable AWS pipelines.
                 </p>
                 <p>
                   I'm passionate about combining innovation with practical solutions and have a strong interest in AI, Data Science, Game Design, and Software Engineering.
@@ -519,16 +522,31 @@ function App() {
                     </a>
                   </h5>
                   <h6 className="card-subtitle mb-2 text-muted">B.S. Computer Science</h6>
-                  <p className="card-text"><small className="text-muted">Sep. 2022 - May 2026</small></p>
+                  <p className="card-text"><small className="text-muted">Sep. 2022 - May 2026 • Brooklyn, NY</small></p>
                   <ul className="list-unstyled">
-                    <li><strong>Minors:</strong> Cybersecurity, Game Engineering, Mathematics</li>
-                    <li><strong>Clubs:</strong> Chinese Mei Society (VP), Theta Tau Professional Engineering Fraternity (Webmaster & Professional Chair), Tech@NYU (Mentorship Program), Society of Hispanic Professional Engineers (SHPE), HackNYU, Running Club</li>
+                    <li><strong>Minors:</strong> Game Engineering, Mathematics</li>
+                    <li><strong>Clubs:</strong> Chinese Mei Society (VP), Theta Tau (Webmaster), Tech@NYU, Society of Hispanic Professional Engineers (SHPE), HackNYU, Running Club</li>
                     <li><strong>Relevant Coursework:</strong> Data Structures, Algorithms, Databases, Game Programming, Object-Oriented Programming, Operating Systems</li>
                   </ul>
                 </div>
               </div>
 
-              <div className="card">
+              <div className="card mb-4">
+                <img src="assets/img/vinuni.jpg"
+                  className="card-img-top education-card-img" alt="VinUniversity" draggable="false" onDragStart={handleDragStart} />
+                <div className="card-body">
+                  <h5 className="card-title">
+                    <a href="https://vinuni.edu.vn/" target="_blank" rel="noopener noreferrer" className="text-decoration-none">
+                      VinUniversity
+                    </a>
+                  </h5>
+                  <h6 className="card-subtitle mb-2 text-muted">Study Away</h6>
+                  <p className="card-text"><small className="text-muted">Jan. 2026 • Hanoi, VN</small></p>
+
+                </div>
+              </div>
+
+              <div className="card mb-4">
                 <img src="assets/img/nyu_shanghai.jpg"
                   className="card-img-top education-card-img" alt="NYU Shanghai Campus" draggable="false" onDragStart={handleDragStart} />
                 <div className="card-body">
@@ -538,12 +556,15 @@ function App() {
                     </a>
                   </h5>
                   <h6 className="card-subtitle mb-2 text-muted">Study Away</h6>
-                  <p className="card-text"><small className="text-muted">Sep. 2024 - Dec. 2024</small></p>
+                  <p className="card-text"><small className="text-muted">Sep. 2024 - Dec. 2024 • Shanghai, CN</small></p>
                   <ul className="list-unstyled">
                     <li><strong>Clubs:</strong> Language Peer Mentor, Qilin Boxing Club</li>
                   </ul>
                 </div>
               </div>
+            
+
+            
             </div>
 
             <div className="col-lg-6">
@@ -865,7 +886,7 @@ function App() {
           <h2 className="text-center mb-5">Contact Information</h2>
           <p className="text-center mb-4">Let's connect!</p>
 
-          <div className="row text-center">
+          <div className="row text-center justify-content-center">
             <div className="col-lg-2 col-md-4 col-sm-6 mb-3">
               <a href="https://www.linkedin.com/in/stevloc" target="_blank" rel="noopener noreferrer" className="text-decoration-none contact-link">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
@@ -907,6 +928,13 @@ function App() {
                 <img src="https://images.squarespace-cdn.com/content/v1/5d27a2af17e26b0001269fd6/8f86dd75-d05e-41db-a33f-01aa6c7391d4/Beli+Logo_FINAL070423.png"
                   className="contact-logo" alt="Beli" draggable="false" onDragStart={handleDragStart} />
                 <h5 className="mt-2">Beli</h5>
+              </a>
+            </div>
+            <div className="col-lg-2 col-md-4 col-sm-6 mb-3">
+              <a href="https://stevloc.itch.io/" target="_blank" rel="noopener noreferrer" className="text-decoration-none contact-link">
+                <img src="https://static.itch.io/images/itchio-textless-black.svg"
+                  className="contact-logo" alt="itch.io" draggable="false" onDragStart={handleDragStart} />
+                <h5 className="mt-2">itch.io</h5>
               </a>
             </div>
           </div>
