@@ -411,7 +411,7 @@ function App() {
 
         <section id="about" className="section about-section">
           <div className="page-shell about-grid">
-            <div className="about-portrait"><img src="/assets/img/profile-img.jpg" alt="Steven Lo Cen" loading="lazy" draggable="false" /></div>
+            <div className="about-portrait"><img src="/assets/img/profile-2026.jpg" alt="Steven Lo Cen" loading="lazy" draggable="false" /></div>
             <div className="about-copy">
               <h2>About</h2>
               <div className="about-copy__text">

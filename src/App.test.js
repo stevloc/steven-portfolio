@@ -4,6 +4,7 @@ import App from './App';
 test('renders Steven’s portfolio introduction', () => {
   render(<App />);
   expect(screen.getByRole('heading', { level: 1, name: /steven lo cen/i })).toBeInTheDocument();
+  expect(screen.getByRole('img', { name: /steven lo cen/i })).toHaveAttribute('src', '/assets/img/profile-2026.jpg');
   expect(screen.getByRole('link', { name: /view selected work/i })).toBeInTheDocument();
   expect(screen.getByText(/carnegie mellon university/i)).toBeInTheDocument();
   expect(screen.getByRole('heading', { level: 2, name: /education/i })).toBeInTheDocument();
