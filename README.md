@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Steven's Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the source code for my personal portfolio at [stevenlocen.com](https://stevenlocen.com). It brings my software projects, work experience, education, and interests into one place, with direct links to my work and resume.
 
-## Available Scripts
+The site is built with React and custom CSS. An interactive location selector changes the page's colors and skyline artwork to reflect places where I have lived, studied, or worked.
 
-In the project directory, you can run:
+## What the site includes
 
-### `npm start`
+- Visitors can browse four selected projects and expand the collection to see all 13 projects.
+- Seven location themes connect the visual design to my background.
+- Dedicated sections cover experience, education, study abroad, and personal interests.
+- The navigation provides access to my resume, contact information, and external profiles.
+- The layout adapts to smaller screens and includes a skip link, labeled controls, and reduced-motion styles.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Where to start in the code
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| File | What it explains |
+| --- | --- |
+| [`src/App.js`](src/App.js) | This file defines the portfolio content, page sections, navigation, location selection, and project expansion. |
+| [`src/redesign.css`](src/redesign.css) | This stylesheet defines the layout, city themes, skyline artwork, responsive behavior, and reduced-motion rules. |
+| [`src/App.test.js`](src/App.test.js) | These tests check the main content, important links, and the expanded project collection. |
 
-### `npm test`
+## Repository structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```text
+steven-portfolio/
+├── public/
+│   ├── assets/
+│   │   ├── img/                 # The site stores its profile photo here.
+│   │   └── resume/              # The site serves the resume PDF from here.
+│   ├── CNAME                   # This file sets the custom domain.
+│   ├── index.html              # This file provides the HTML document shell.
+│   └── og.png                  # This image supports link previews.
+├── src/
+│   ├── App.js                  # This file contains the page and its content.
+│   ├── App.test.js             # This file contains the React component tests.
+│   ├── redesign.css            # This file contains the main visual design.
+│   ├── index.css               # This file contains global styles.
+│   ├── index.js                # This file mounts the React application.
+│   └── setupTests.js           # This file configures the test environment.
+├── package.json
+└── package-lock.json
+```
 
-### `npm run build`
+## How it works
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The portfolio uses a single React page. Arrays in `App.js` hold the projects, experience, education, locations, and social links. The page maps those records into repeated sections, which keeps content updates separate from the markup for each card.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React state controls the mobile menu, selected location, and expanded project list. Selecting a location applies a theme class that updates CSS variables and the matching city illustration. Section navigation uses in-page anchors and scrolling.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The main technologies are React 19, JavaScript, custom CSS, Bootstrap Icons, and the existing Create React App tooling. Jest and React Testing Library support the component tests. GitHub Pages deployment is configured through `gh-pages`.
 
-### `npm run eject`
+## Run locally
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Use Node.js 20 or newer and npm. The dependency lockfile includes packages that require Node.js 20 or newer.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/stevloc/steven-portfolio.git
+cd steven-portfolio
+npm ci
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Open [localhost:3000](http://localhost:3000) after the development server starts. The current application renders its content locally and does not require a backend service or API credentials.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Test and build
 
-## Learn More
+Run the existing tests once with:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm test -- --watchAll=false
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a production build with:
 
-### Code Splitting
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The build is written to `build/`. The configured `npm run deploy` command builds the site and publishes that directory through `gh-pages`. Publishing requires write access to the repository.
 
-### Analyzing the Bundle Size
+## Update the content
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Edit the data arrays and page sections in `src/App.js` to update projects, experience, education, or links.
+- Edit `src/redesign.css` to change the layout, colors, or city illustrations.
+- Replace the files in `public/assets/` to update the profile photo or resume, and keep the corresponding links in `App.js` in sync.
+- Update both `public/CNAME` and the `homepage` field in `package.json` if the deployment domain changes.
