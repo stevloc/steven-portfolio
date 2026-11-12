@@ -420,7 +420,7 @@ function App() {
             </div>
 
             <aside className="places-panel glass-panel" aria-label="Places Steven has lived, studied, or worked">
-              <div className="places-header"><p>Places I&apos;ve lived &amp; worked</p><span aria-live="polite">{activeCity.detail}</span></div>
+              <div className="places-header"><span aria-live="polite">{activeCity.detail}</span></div>
               <div className={`city-art city-art--${activeCity.id}`} data-city={activeCity.name} aria-hidden="true">
                 <CitySkyline city={activeCity.id} />
               </div>
