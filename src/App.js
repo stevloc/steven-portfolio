@@ -227,6 +227,14 @@ const education = [
     ],
   },
   {
+    school: 'VinUniversity',
+    program: 'Study Away',
+    period: 'January 2026',
+    location: 'Hanoi, Vietnam',
+    mark: 'VIN',
+    logo: '/assets/logos/vinuni.png',
+  },
+  {
     school: 'NYU Shanghai',
     program: 'Study Away',
     period: 'Fall 2024',
@@ -235,12 +243,13 @@ const education = [
     logo: '/assets/logos/nyu.svg',
   },
   {
-    school: 'VinUniversity',
+    school: 'Universidad de Costa Rica',
     program: 'Study Away',
-    period: 'January 2026',
-    location: 'Hanoi, Vietnam',
-    mark: 'VIN',
-    logo: '/assets/logos/vinuni.png',
+    period: '2019 — 2020',
+    kind: 'Cross registration · MATEM Project',
+    location: 'San José, Costa Rica',
+    mark: 'UCR',
+    logo: '/assets/logos/ucr.svg',
   },
 ];
 
@@ -527,12 +536,12 @@ function App() {
             </div>
 
             <div className="study-away-block">
-              <div className="study-away-heading"><h3>Study abroad</h3></div>
+              <div className="study-away-heading"><h3>Study abroad &amp; cross registration</h3><span className="study-away-range">2026 — 2019</span></div>
               <div className="study-away-list">
                 {studyAway.map((item) => (
                   <article className="study-away-row" key={item.school}>
                     <span className="school-mark">{item.logo ? <LogoGlyph src={item.logo} /> : item.mark}</span>
-                    <div><h4>{item.school}</h4><p>{item.period} · {item.location}</p></div>
+                    <div><span className="study-away-kind">{item.kind || 'Study abroad'}</span><h4>{item.school}</h4><p>{item.period} · {item.location}</p></div>
                   </article>
                 ))}
               </div>

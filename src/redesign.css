@@ -189,14 +189,14 @@ img { display: block; max-width: 100%; }
 .study-away-block { margin-top: 20px; overflow: hidden; color: #f4f4f0; border: 1px solid rgba(255,255,255,.1); border-radius: 22px; background: radial-gradient(circle at 92% 0%,var(--theme-wash-a),transparent 38%),#1c1d1b; box-shadow: 0 18px 48px rgba(31,32,29,.11); }
 .study-away-heading { padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid rgba(255,255,255,.09); }
 .study-away-heading h3 { margin: 0; color: var(--accent-soft); font-size: .68rem; font-weight: 720; letter-spacing: .12em; text-transform: uppercase; }
-.study-away-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.study-away-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); }
 .study-away-row { padding: 20px 22px; display: grid; grid-template-columns: 46px 1fr; align-items: center; gap: 16px; }
 .study-away-row .school-mark { width: 46px; height: 46px; background: rgba(255,255,255,.1); box-shadow: none; }
 .study-away-row + .study-away-row { border-left: 1px solid rgba(255,255,255,.09); }
 .study-away-row h4 { margin: 0 0 5px; font-size: .96rem; font-weight: 580; letter-spacing: -.02em; }
 .study-away-row p { margin: 0; color: rgba(255,255,255,.66); font-size: .72rem; }
-
-/* About */
+.study-away-kind { margin-bottom: 6px; display: block; color: var(--accent-soft); font-size: .6rem; font-weight: 720; letter-spacing: .12em; text-transform: uppercase; }
+.study-away-range { white-space: nowrap; color: rgba(255,255,255,.5); font-size: .68rem; font-weight: 620; letter-spacing: .04em; }/* About */
 .about-section { background: radial-gradient(circle at 84% 28%,var(--theme-wash-b),transparent 27%), linear-gradient(180deg,#efede5,#f8f6f0); }
 .about-grid { display: grid; grid-template-columns: minmax(300px,.78fr) minmax(400px,1fr); gap: clamp(70px,10vw,145px); align-items: center; }
 .about-portrait { aspect-ratio: .86; overflow: hidden; border-radius: 145px 145px 30px 30px; background: #d9d7ce; box-shadow: 0 30px 80px rgba(56,55,47,.14); }
